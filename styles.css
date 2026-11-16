@@ -362,8 +362,11 @@ p {
 }
 
 .partner__logo {
+  align-self: flex-start;
   height: 120px;
   width: auto;
+  max-width: 100%;
+  object-fit: contain;
   margin-bottom: var(--space-3);
 }
 
@@ -669,8 +672,11 @@ p {
 }
 
 .footer__logo {
+  align-self: flex-start;
   height: 120px;
   width: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .social {

@@ -750,6 +750,21 @@ p {
   gap: var(--space-4);
 }
 
+/* Spam trap: invisible to people, filled in by bots. */
+.field-hidden {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-error,
+.form--compact p.form-error {
+  margin: 0;
+  color: #e08a8a;
+}
+
 .form--compact {
   gap: var(--space-4);
 }

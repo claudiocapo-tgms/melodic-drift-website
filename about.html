@@ -85,30 +85,27 @@
       </div>
       <div class="footer__signup" id="newsletter">
         <div class="h3">Stay in the loop</div>
-        <!-- TODO: connect to MailerLite (see script.js). Until then this only shows the thank-you message. -->
-        <form class="form form--compact" id="newsletter-form" data-status="newsletter-status" action="#" method="post">
-          <div class="form__row">
-            <div class="field">
-              <label for="nl-first">First name</label>
-              <input id="nl-first" name="first_name" type="text" autocomplete="given-name" required>
-            </div>
-            <div class="field">
-              <label for="nl-last">Last name</label>
-              <input id="nl-last" name="last_name" type="text" autocomplete="family-name" required>
-            </div>
+        <!-- Sends to the MailerLite embedded form (group set in MailerLite). See script.js. -->
+        <form class="form form--compact" id="newsletter-form" data-status="newsletter-status" data-error="newsletter-error" data-mailerlite action="https://assets.mailerlite.com/jsonp/706839/forms/204374630122652967/subscribe" method="post">
+          <div class="field">
+            <label for="nl-first">First name</label>
+            <input id="nl-first" name="fields[name]" type="text" autocomplete="given-name" required>
           </div>
           <div class="field">
             <label for="nl-email">Email</label>
-            <input id="nl-email" name="email" type="email" autocomplete="email" required>
+            <input id="nl-email" name="fields[email]" type="email" autocomplete="email" required>
           </div>
           <div class="field">
             <label for="nl-country">Country</label>
-            <input id="nl-country" name="country" type="text" autocomplete="country-name" required>
+            <input id="nl-country" name="fields[country]" type="text" autocomplete="country-name" required>
           </div>
+          <input type="hidden" name="ml-submit" value="1">
+          <input type="hidden" name="anticsrf" value="true">
           <div>
             <button type="submit" class="btn btn--primary">Subscribe</button>
           </div>
           <p class="small">By subscribing you agree to receive news about Melodic Drift from Tanzgemeinschaft and Chrom Recordings. You can unsubscribe at any time.</p>
+          <p class="small form-error" id="newsletter-error" role="alert" hidden>Something went wrong. Please try again in a moment.</p>
         </form>
         <div class="form-status form-status--compact" id="newsletter-status" role="status" hidden>
           <div class="eyebrow">Subscribed</div>

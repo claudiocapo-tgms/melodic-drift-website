@@ -3,6 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Cookiebot: must load before Google Tag Manager and any other script that sets cookies. -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ba3ce9ea-0010-42fd-9f67-e8ef1a45d4a2" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MX8WPRVG');</script>
+<!-- End Google Tag Manager -->
 <title>Melodic Drift – Tanzgemeinschaft × Chrom Recordings</title>
 <meta name="description" content="Melodic Drift is a night for slow-burning melodic house and techno, a collaboration between Tanzgemeinschaft and Chrom Recordings.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +18,9 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MX8WPRVG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <header class="site-header">
   <div class="container">
@@ -106,36 +114,92 @@
         <div class="eyebrow">Gallery</div>
         <h2 class="h2">Moments and motion</h2>
       </div>
-      <!-- To use real media: put an <img src="assets/…" alt="…"> or <video> inside a tile
-           and delete the .tile__placeholder (and the play button for videos you embed). -->
-      <div class="gallery">
-        <div class="tile tile--wide">
-          <div class="tile__label">Video</div>
-          <button type="button" class="play" aria-label="Play aftermovie">
-            <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <!-- Media lives in assets/gallery/ (melodicdrift_01.jpg …). Click a tile to open it in the lightbox (see script.js).
+           To add an item, copy a <button class="tile"> below (video tiles also need data-poster). -->
+      <div class="gallery-slider">
+        <div class="gallery" id="gallery-track" tabindex="0" aria-label="Gallery, scroll sideways">
+          <button type="button" class="tile" data-full="assets/gallery/melodicdrift_01.jpg" aria-label="Open photo: Melodic Drift atmosphere">
+            <img src="assets/gallery/melodicdrift_01.jpg" alt="" loading="lazy" decoding="async">
           </button>
-          <div class="tile__caption">Aftermovie · [Edition]</div>
-        </div>
-        <div class="tile tile--tall">
-          <div class="tile__placeholder">Photo</div>
-          <div class="tile__caption">The floor, [Venue]</div>
-        </div>
-        <div class="tile">
-          <div class="tile__placeholder">Photo</div>
-          <div class="tile__caption">Behind the decks</div>
-        </div>
-        <div class="tile">
-          <div class="tile__label">Video</div>
-          <button type="button" class="play" aria-label="Play clip">
-            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <button type="button" class="tile tile--video" data-full="assets/gallery/melodicdrift_09.mp4" data-poster="assets/gallery/posters/melodicdrift_09.jpg" aria-label="Play video: Melodic Drift atmosphere">
+            <video src="assets/gallery/melodicdrift_09.mp4" poster="assets/gallery/posters/melodicdrift_09.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <svg class="tile__badge" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
           </button>
-          <div class="tile__caption">Set clip · [Artist]</div>
+          <button type="button" class="tile" data-full="assets/gallery/melodicdrift_02.jpg" aria-label="Open photo: Melodic Drift atmosphere">
+            <img src="assets/gallery/melodicdrift_02.jpg" alt="" loading="lazy" decoding="async">
+          </button>
+          <button type="button" class="tile tile--video" data-full="assets/gallery/melodicdrift_13.mp4" data-poster="assets/gallery/posters/melodicdrift_13.jpg" aria-label="Play video: Melodic Drift atmosphere">
+            <video src="assets/gallery/melodicdrift_13.mp4" poster="assets/gallery/posters/melodicdrift_13.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <svg class="tile__badge" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button type="button" class="tile" data-full="assets/gallery/melodicdrift_03.jpg" aria-label="Open photo: Melodic Drift atmosphere">
+            <img src="assets/gallery/melodicdrift_03.jpg" alt="" loading="lazy" decoding="async">
+          </button>
+          <button type="button" class="tile tile--video" data-full="assets/gallery/melodicdrift_14.mp4" data-poster="assets/gallery/posters/melodicdrift_14.jpg" aria-label="Play video: Melodic Drift atmosphere">
+            <video src="assets/gallery/melodicdrift_14.mp4" poster="assets/gallery/posters/melodicdrift_14.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <svg class="tile__badge" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button type="button" class="tile" data-full="assets/gallery/melodicdrift_04.jpg" aria-label="Open photo: Melodic Drift atmosphere">
+            <img src="assets/gallery/melodicdrift_04.jpg" alt="" loading="lazy" decoding="async">
+          </button>
+          <button type="button" class="tile tile--video" data-full="assets/gallery/melodicdrift_15.mp4" data-poster="assets/gallery/posters/melodicdrift_15.jpg" aria-label="Play video: Melodic Drift atmosphere">
+            <video src="assets/gallery/melodicdrift_15.mp4" poster="assets/gallery/posters/melodicdrift_15.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <svg class="tile__badge" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button type="button" class="tile" data-full="assets/gallery/melodicdrift_05.jpg" aria-label="Open photo: Melodic Drift atmosphere">
+            <img src="assets/gallery/melodicdrift_05.jpg" alt="" loading="lazy" decoding="async">
+          </button>
+          <button type="button" class="tile tile--video" data-full="assets/gallery/melodicdrift_11.mp4" data-poster="assets/gallery/posters/melodicdrift_11.jpg" aria-label="Play video: Melodic Drift atmosphere">
+            <video src="assets/gallery/melodicdrift_11.mp4" poster="assets/gallery/posters/melodicdrift_11.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <svg class="tile__badge" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button type="button" class="tile" data-full="assets/gallery/melodicdrift_06.jpg" aria-label="Open photo: Melodic Drift atmosphere">
+            <img src="assets/gallery/melodicdrift_06.jpg" alt="" loading="lazy" decoding="async">
+          </button>
+          <button type="button" class="tile tile--video" data-full="assets/gallery/melodicdrift_16.mp4" data-poster="assets/gallery/posters/melodicdrift_16.jpg" aria-label="Play video: Melodic Drift atmosphere">
+            <video src="assets/gallery/melodicdrift_16.mp4" poster="assets/gallery/posters/melodicdrift_16.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <svg class="tile__badge" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button type="button" class="tile" data-full="assets/gallery/melodicdrift_07.jpg" aria-label="Open photo: Melodic Drift atmosphere">
+            <img src="assets/gallery/melodicdrift_07.jpg" alt="" loading="lazy" decoding="async">
+          </button>
+          <button type="button" class="tile tile--video" data-full="assets/gallery/melodicdrift_17.mp4" data-poster="assets/gallery/posters/melodicdrift_17.jpg" aria-label="Play video: Melodic Drift atmosphere">
+            <video src="assets/gallery/melodicdrift_17.mp4" poster="assets/gallery/posters/melodicdrift_17.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <svg class="tile__badge" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button type="button" class="tile" data-full="assets/gallery/melodicdrift_08.jpg" aria-label="Open photo: Melodic Drift atmosphere">
+            <img src="assets/gallery/melodicdrift_08.jpg" alt="" loading="lazy" decoding="async">
+          </button>
+          <button type="button" class="tile tile--video" data-full="assets/gallery/melodicdrift_12.mp4" data-poster="assets/gallery/posters/melodicdrift_12.jpg" aria-label="Play video: Melodic Drift atmosphere">
+            <video src="assets/gallery/melodicdrift_12.mp4" poster="assets/gallery/posters/melodicdrift_12.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <svg class="tile__badge" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button type="button" class="tile tile--video" data-full="assets/gallery/melodicdrift_18.mp4" data-poster="assets/gallery/posters/melodicdrift_18.jpg" aria-label="Play video: Melodic Drift atmosphere">
+            <video src="assets/gallery/melodicdrift_18.mp4" poster="assets/gallery/posters/melodicdrift_18.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <svg class="tile__badge" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button type="button" class="tile tile--video" data-full="assets/gallery/melodicdrift_10.mp4" data-poster="assets/gallery/posters/melodicdrift_10.jpg" aria-label="Play video: Melodic Drift atmosphere">
+            <video src="assets/gallery/melodicdrift_10.mp4" poster="assets/gallery/posters/melodicdrift_10.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <svg class="tile__badge" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button type="button" class="tile tile--video" data-full="assets/gallery/melodicdrift_19.mp4" data-poster="assets/gallery/posters/melodicdrift_19.jpg" aria-label="Play video: Melodic Drift atmosphere">
+            <video src="assets/gallery/melodicdrift_19.mp4" poster="assets/gallery/posters/melodicdrift_19.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <svg class="tile__badge" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
         </div>
-        <div class="tile">
-          <div class="tile__placeholder">Photo</div>
-          <div class="tile__caption">Late hours</div>
+        <div class="gallery-nav">
+          <button type="button" class="gallery-nav__btn" data-dir="-1" aria-label="Previous"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button type="button" class="gallery-nav__btn" data-dir="1" aria-label="Next"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg></button>
         </div>
       </div>
+
+      <dialog class="lightbox" id="lightbox" aria-label="Gallery viewer">
+        <div class="lightbox__stage" id="lightbox-stage"></div>
+        <button type="button" class="lightbox__btn lightbox__close" id="lightbox-close" aria-label="Close"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        <button type="button" class="lightbox__btn lightbox__prev" id="lightbox-prev" aria-label="Previous"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" class="lightbox__btn lightbox__next" id="lightbox-next" aria-label="Next"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg></button>
+        <div class="lightbox__count" id="lightbox-count" aria-live="polite"></div>
+      </dialog>
     </div>
   </section>
 
@@ -280,7 +344,7 @@
     </div>
     <div class="footer__legal">
       <div>© 2026 Melodic Drift · Tanzgemeinschaft × Chrom Recordings</div>
-      <div><a href="#">Privacy</a> · <a href="#">Imprint</a></div>
+      <div><a href="privacy.html">Privacy</a> · <a href="imprint.html">Imprint</a></div>
     </div>
   </div>
 </footer>

@@ -93,3 +93,115 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   update();
 })();
+
+// Gallery: thumbnail videos play muted only while they are on screen (saves bandwidth and battery).
+// With reduced motion they stay paused on their poster image.
+(function () {
+  var videos = document.querySelectorAll(".gallery video");
+  if (!videos.length) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var v = entry.target;
+      if (entry.isIntersecting) {
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      } else {
+        v.pause();
+      }
+    });
+  }, { threshold: 0.35 });
+
+  videos.forEach(function (v) { observer.observe(v); });
+})();
+
+// Gallery: previous/next buttons scroll the two-row slider.
+(function () {
+  var track = document.getElementById("gallery-track");
+  if (!track) return;
+  document.querySelectorAll(".gallery-nav__btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var dir = Number(btn.getAttribute("data-dir"));
+      track.scrollBy({ left: dir * track.clientWidth * 0.8, behavior: "smooth" });
+    });
+  });
+})();
+
+// Gallery: lightbox. Click a tile to view it large; arrows / swipe / keys move on, Esc closes.
+(function () {
+  var box = document.getElementById("lightbox");
+  var stage = document.getElementById("lightbox-stage");
+  var count = document.getElementById("lightbox-count");
+  var tiles = Array.prototype.slice.call(document.querySelectorAll(".gallery .tile"));
+  if (!box || !stage || !tiles.length || typeof box.showModal !== "function") return;
+
+  var index = 0;
+
+  function show(i) {
+    index = (i + tiles.length) % tiles.length;
+    var tile = tiles[index];
+    var src = tile.getAttribute("data-full");
+    var isVideo = tile.classList.contains("tile--video");
+    stage.textContent = "";
+    var el;
+    if (isVideo) {
+      el = document.createElement("video");
+      el.src = src;
+      el.poster = tile.getAttribute("data-poster") || "";
+      el.controls = true;
+      el.autoplay = true;
+      el.loop = true;
+      el.playsInline = true;
+    } else {
+      el = document.createElement("img");
+      el.src = src;
+      el.alt = "Melodic Drift atmosphere";
+    }
+    stage.appendChild(el);
+    count.textContent = (index + 1) + " / " + tiles.length;
+    if (isVideo) {
+      var p = el.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+  }
+
+  function close() {
+    box.close();
+  }
+
+  tiles.forEach(function (tile, i) {
+    tile.addEventListener("click", function () {
+      show(i);
+      box.showModal();
+    });
+  });
+
+  box.addEventListener("close", function () {
+    stage.textContent = "";
+    if (tiles[index]) tiles[index].focus({ preventScroll: true });
+  });
+
+  document.getElementById("lightbox-close").addEventListener("click", close);
+  document.getElementById("lightbox-prev").addEventListener("click", function () { show(index - 1); });
+  document.getElementById("lightbox-next").addEventListener("click", function () { show(index + 1); });
+
+  // Click on the dark area (not on the media or buttons) closes.
+  box.addEventListener("click", function (e) {
+    if (e.target === box || e.target === stage) close();
+  });
+
+  box.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") show(index - 1);
+    if (e.key === "ArrowRight") show(index + 1);
+  });
+
+  var startX = null;
+  box.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; }, { passive: true });
+  box.addEventListener("touchend", function (e) {
+    if (startX === null) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    startX = null;
+    if (Math.abs(dx) > 60) show(index + (dx < 0 ? 1 : -1));
+  });
+})();

@@ -248,6 +248,10 @@ p {
   text-decoration: none;
 }
 
+.nav a[aria-current="page"] {
+  color: var(--ink-heading);
+}
+
 .nav a:hover,
 .brand-link:hover {
   color: var(--ink-heading);
@@ -368,6 +372,54 @@ p {
   max-width: 100%;
   object-fit: contain;
   margin-bottom: var(--space-3);
+}
+
+/* ---------- Work with us ---------- */
+
+.service-list {
+  border-top: 1px solid var(--border);
+}
+
+.service {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 64px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.service__title {
+  flex: 0 0 300px;
+  margin: 0;
+}
+
+.service__text {
+  flex: 1 1 360px;
+  margin: 0;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.list li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 14px;
+  height: 1px;
+  background: var(--brass);
 }
 
 /* ---------- Gallery ---------- */
@@ -662,15 +714,22 @@ p {
   gap: var(--space-16);
 }
 
+.footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 64px 96px;
+}
+
 .footer__brands {
   display: flex;
   flex-wrap: wrap;
-  gap: 48px 96px;
-  justify-content: space-between;
+  gap: 48px 56px;
 }
 
 .footer__brand {
-  flex: 1 1 280px;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
@@ -678,10 +737,45 @@ p {
 
 .footer__logo {
   align-self: flex-start;
-  height: 120px;
+  height: 80px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
+}
+
+.footer__signup {
+  flex: 0 1 420px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.form--compact {
+  gap: var(--space-4);
+}
+
+.form--compact .form__row {
+  gap: var(--space-4);
+}
+
+.form--compact .form__row .field {
+  flex-basis: 160px;
+  min-width: 0;
+}
+
+.form--compact .field input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.form--compact p {
+  margin: 0;
+  color: var(--ink-muted);
+}
+
+.form-status--compact {
+  padding: 24px;
 }
 
 .social {

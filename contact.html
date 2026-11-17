@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;200;300&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;1,200&display=swap">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -38,8 +40,7 @@
       </div>
 
       <div class="join__form">
-        <!-- TODO: point action at your form backend (MailerLite, Formspree, your own endpoint).
-             Until then script.js only shows the thank-you message and sends nothing. -->
+        <!-- Sends to send-contact.php, which emails the enquiry. See script.js. -->
         <form class="form" id="join-form" data-status="join-status" data-error="join-error" action="send-contact.php" method="post">
           <div class="form__row">
             <div class="field">

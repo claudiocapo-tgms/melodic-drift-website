@@ -205,3 +205,25 @@
     if (Math.abs(dx) > 60) show(index + (dx < 0 ? 1 : -1));
   });
 })();
+
+// Mobile menu: the hamburger button opens and closes the navigation.
+(function () {
+  var header = document.querySelector(".site-header");
+  var toggle = document.querySelector(".nav-toggle");
+  if (!header || !toggle) return;
+
+  function setOpen(open) {
+    header.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  toggle.addEventListener("click", function () {
+    setOpen(!header.classList.contains("is-open"));
+  });
+  header.querySelectorAll(".nav a").forEach(function (a) {
+    a.addEventListener("click", function () { setOpen(false); });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") setOpen(false);
+  });
+})();

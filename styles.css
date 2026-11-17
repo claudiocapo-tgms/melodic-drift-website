@@ -977,3 +977,77 @@ p {
   line-height: 22px;
   color: var(--ink-muted);
 }
+
+/* ---------- Mobile menu ---------- */
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink-heading);
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+@media (max-width: 720px) {
+  .site-header .container {
+    min-height: 64px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav {
+    display: none;
+    flex: 0 0 100%;
+    flex-direction: column;
+    gap: 0;
+    padding-bottom: 8px;
+  }
+
+  .site-header.is-open .nav {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+  }
+}
+
+/* Logo block: stack the two labels on narrow screens, with one divider between them */
+@media (max-width: 640px) {
+  .partners {
+    flex-direction: column;
+  }
+
+  .partner,
+  .partner + .partner {
+    flex: none;
+    padding: 24px 0;
+  }
+
+  .partner + .partner {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+}

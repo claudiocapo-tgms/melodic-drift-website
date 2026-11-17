@@ -51,3 +51,45 @@
     });
   });
 })();
+
+// Homepage: the hero title dissolves like smoke while you scroll down.
+// Scroll progress drives opacity, upward drift, a noise displacement and a blur (see the #smoke filter in index.html).
+(function () {
+  var title = document.querySelector(".hero__title");
+  var displace = document.getElementById("smoke-displace");
+  var blur = document.getElementById("smoke-blur");
+  if (!title || !displace || !blur) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  var ticking = false;
+
+  function update() {
+    ticking = false;
+    var distance = Math.max(window.innerHeight * 0.55, 1);
+    var p = Math.min(Math.max(window.scrollY / distance, 0), 1);
+
+    if (p < 0.005) {
+      title.style.filter = "";
+      title.style.opacity = "";
+      title.style.transform = "";
+      return;
+    }
+
+    var eased = p * p; // starts gently, then dissolves faster
+    displace.setAttribute("scale", String(eased * 170));
+    blur.setAttribute("stdDeviation", String(eased * 8));
+    title.style.filter = "url(#smoke)";
+    title.style.opacity = String(1 - Math.pow(p, 1.4));
+    title.style.transform = "translate3d(0," + (-p * 70) + "px,0) scale(" + (1 + p * 0.05) + ")";
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  update();
+})();

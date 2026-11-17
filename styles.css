@@ -317,6 +317,11 @@ p {
   }
 }
 
+.smoke-filter {
+  position: absolute;
+  pointer-events: none;
+}
+
 .hero__inner {
   position: relative;
   min-height: 720px;
